@@ -1,8 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Drawer, Divider } from "material-ui";
-import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
+import {
+  Drawer,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from "@material-ui/core";
 import { Inbox } from "@material-ui/icons";
 
 // class Sidebar extends Component {

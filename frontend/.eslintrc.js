@@ -21,5 +21,9 @@ module.exports = {
     "plugin:react/recommended",
     "airbnb-base",
     "plugin:prettier/recommended"
-  ]
+  ],
+  rules: { 
+    "no-param-reassign": 0,
+    "no-return-assign": 0
+  }
 };

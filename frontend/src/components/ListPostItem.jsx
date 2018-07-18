@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ListItemText } from "material-ui/List";
+import { ListItemText } from "@material-ui/core";
 
-const ListPostItem = ({ postTitle }) => (
+const ListPostItem = ({ title, score }) => (
   <ListItemText
-    primary={postTitle}
-    secondary="Score: 3, created on July 20, 2014"
+    primary={title}
+    secondary={`Score: ${score}, created on July 20, 2014`}
   />
 );
 
 ListPostItem.propTypes = {
-  postTitle: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  score: PropTypes.string.isRequired
 };
 
 export default ListPostItem;

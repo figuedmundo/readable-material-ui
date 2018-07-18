@@ -2,10 +2,15 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import { Grid, Paper, Typography } from 'material-ui';
-import Tabs, { Tab } from 'material-ui/Tabs';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import {
+  withStyles,
+  Grid,
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon
+} from "@material-ui/core";
 import { Label } from '@material-ui/icons'
 
 import ListPostItem from './ListPostItem.jsx'
@@ -33,21 +38,12 @@ class ListPosts extends Component {
     posts: [],
   }
 
-  componentDidMount() {
-    const posts = ["aa", "bb"]
-    const title = "custom posts title"
-    this.setState({
-      posts: posts,
-      title: title,
-    })
-  }
-
   render() {
-    const { classes } = this.props;
-    const { posts, title } = this.state;
+    const { classes, posts, title } = this.props;
+
     console.log("List Posts", posts)
     return (
-      <Paper container className={classes.postsContainer} >
+      <Paper container="true" className={classes.postsContainer} >
         <List component="nav">
 
           <Typography variant="headline" component="h3" className={classes.postsTitle}>
@@ -58,12 +54,12 @@ class ListPosts extends Component {
 
           
 
-          {posts.map( post => (
-            <ListItem button>
+          {Object.values(posts).map( post => (
+            <ListItem key={post.id} button>
               <ListItemIcon>
                 <Label />
               </ListItemIcon>
-              <ListPostItem postTitle={post} />
+              <ListPostItem title={post.title} score={post.voteScore} timestamp={post.timestamp} />
             </ListItem>
           ))
           }

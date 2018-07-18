@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import { IconButton } from "material-ui";
+import { withStyles, IconButton } from "@material-ui/core";
 import { AddCircle } from "@material-ui/icons";
 
 const styles = theme => ({

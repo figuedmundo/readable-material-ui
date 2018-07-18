@@ -2,17 +2,17 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import { Grid, Paper, Typography } from 'material-ui';
-import Tabs, { Tab } from 'material-ui/Tabs';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import { Label } from '@material-ui/icons'
+
+import { withStyles } from "@material-ui/core/styles";
+import { Grid, Paper, Typography, Tabs, Tab } from "@material-ui/core";
+import { Label } from "@material-ui/icons";
+
 import { getCategories } from "../utils/BackendApi";
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    state: null,
+    state: null
     // display: 'block'
   },
   paper: {
@@ -20,32 +20,23 @@ const styles = theme => ({
     width: 100,
     paddingTop: 16,
     paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 3
   },
   control: {
-    padding: theme.spacing.unit * 2,
-  },
+    padding: theme.spacing.unit * 2
+  }
 });
 
 class CategoriesTabs extends Component {
   state = {
     categories: [],
-  }
-
-  componentDidMount() {
-    getCategories().then((data) => {
-      console.log(data)
-      this.setState({
-        categories: data
-      })
-    })
-  }
+    value: "0"
+  };
 
   render() {
-    const { classes } = this.props;
-    const { categories } = this.state;
+    const { classes, categories } = this.props;
     return (
-      <Paper container className={classes.root} >
+      <Paper container="true" elevation={2} className={classes.root}>
         <Tabs
           value={this.state.value}
           onChange={this.handleChange}
@@ -53,11 +44,11 @@ class CategoriesTabs extends Component {
           textColor="primary"
           centered
         >
-          {categories.map(c => <Tab key={c.name} label={c.name} />)}          
-        </Tabs>          
+          {categories.map(c => <Tab key={c} label={c} />)}
+        </Tabs>
       </Paper>
     );
   }
-}    
+}
 
 export default withStyles(styles)(CategoriesTabs);

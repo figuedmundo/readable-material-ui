@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import { Toolbar, AppBar, Typography, IconButton } from "material-ui";
+import {
+  withStyles,
+  Toolbar,
+  AppBar,
+  Typography,
+  IconButton
+} from "@material-ui/core";
 import { AccountCircle, Menu } from "@material-ui/icons";
 
 const styles = theme => ({
